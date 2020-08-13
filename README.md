@@ -33,7 +33,7 @@ Tienen un emulador de la computadora y el circuito para el Logisim en el [blog](
 0xD:  11111111    #  ff  #  ff
 0xE:  00000000    #  00  #  00
 ```
-***RTA***: 0xE, al finalizar el programa, guarda el valor 18. Este programa hace el producto entre 0xB y 0xC.
+***RTA***: 0xE, al finalizar el programa, guarda el valor 18. Este programa hace el producto entre lo que esta en 0xB y en 0xC.
 
 2. Consideren el siguiente _hexdump_ de la memoria de TOY-8. O sea un volcado de la memoria en hexadecimal. ¿Cuántos programas distintos pueden encontrar? Indicar cuáles bytes interpretan como instrucciones y cuáles como datos.
 
