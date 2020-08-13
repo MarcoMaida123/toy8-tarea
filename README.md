@@ -1,6 +1,6 @@
 # Arquitectura TOY-8
 
-Nombre y apellido:
+Nombre y apellido: Marco Maida
 
 ## Instrucciones
 
@@ -19,20 +19,21 @@ Tienen un emulador de la computadora y el circuito para el Logisim en el [blog](
 
 ```
 0x1:  10101011    #  AB  #  lw B
-0x2:  11101010    #
-0x3:  00101101    #
-0x4:  11001011    #
-0x5:  10101110    #
-0x6:  00101100    #
-0x7:  11001110    #
-0x8:  10100000    #
-0x9:  11100001    #
-0xA:  00000000    #
-0xB:  00000003    #
-0xC:  00000006    #
-0xD:  11111111    #
-0xE:  00000000    #
+0x2:  11101010    #  EA  #  bze A
+0x3:  00101101    #  2D  #  add D
+0x4:  11001011    #  CB  #  sw B
+0x5:  10101110    #  AE  #  lw E
+0x6:  00101100    #  2C  #  add C
+0x7:  11001110    #  CE  #  sw E
+0x8:  10100000    #  A0  #  lw 0
+0x9:  11100001    #  E1  #  bze 1
+0xA:  00000000    #  00  #  00
+0xB:  00000003    #  03  #  03
+0xC:  00000006    #  06  #  06
+0xD:  11111111    #  ff  #  ff
+0xE:  00000000    #  00  #  00
 ```
+***RTA***: 0xE, al finalizar el programa, guarda el valor 18. Este programa hace el producto entre 0xB y 0xC.
 
 2. Consideren el siguiente _hexdump_ de la memoria de TOY-8. O sea un volcado de la memoria en hexadecimal. ¿Cuántos programas distintos pueden encontrar? Indicar cuáles bytes interpretan como instrucciones y cuáles como datos.
 
