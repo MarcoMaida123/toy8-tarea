@@ -27,13 +27,13 @@ Tienen un emulador de la computadora y el circuito para el Logisim en el [blog](
 0x7:  11001110    #  CE  #  sw E
 0x8:  10100000    #  A0  #  lw 0
 0x9:  11100001    #  E1  #  bze 1
-0xA:  00000000    #  00  #  00
-0xB:  00000003    #  03  #  03
-0xC:  00000006    #  06  #  06
-0xD:  11111111    #  ff  #  ff
-0xE:  00000000    #  00  #  00
+0xA:  00000000    #  00  #  halt 0
+0xB:  00000003    #  03  #  halt 3
+0xC:  00000006    #  06  #  halt 6
+0xD:  11111111    #  FF  #  255
+0xE:  00000000    #  00  #  halt 0
 ```
-***RTA***: 0xE, al finalizar el programa, guarda el valor 18. Este programa hace el producto entre lo que esta en 0xB y en 0xC.
+***RTA***: 0xE, al finalizar el programa, guarda el valor 18 en decimal (12 en hexadecimal) . Este programa hace el producto entre lo que esta en 0xB y en 0xC.
 
 2. Consideren el siguiente _hexdump_ de la memoria de TOY-8. O sea un volcado de la memoria en hexadecimal. ¿Cuántos programas distintos pueden encontrar? Indicar cuáles bytes interpretan como instrucciones y cuáles como datos.
 
@@ -43,6 +43,8 @@ Tienen un emulador de la computadora y el circuito para el Logisim en el [blog](
 0x8   A7 6D 2E C7
 0xc   00 FF 01 00
 ```
+***RTA***: Hay 2 programas, el primero va desde 0x1 hasta 0x7 y el 2do va desde 0x7 hasta 0xe. En el primer programa, las direcciones 0x1, 0x2, 0x3 y 0x4 almacenan instrucciones. Las direcciones 0x5, 0x6 y 0x7 almacenan datos.
+En el segundo programa, las direcciones 0x8, 0x9, 0xA, 0xB y 0xC son instrucciones. Las direcciones 0xD y 0xE son datos.
 
 3. Para el primer programa del ejercicio anterior. ¿Qué líneas de control se activan para cada instrucción? ¿Cuál es el valor del bus de datos y de instrucciones en cada instrucción? Completen la siguiente tabla, agreguen las filas que sean necesarias.
 
@@ -51,6 +53,9 @@ Tienen un emulador de la computadora y el circuito para el Logisim en el [blog](
 |A5 |0  |IR en         |A5 |1  |
 |A5 |1  |R en, addr mux|08 |5  |
 |26 |0  |              |   |   |
+|26 |1  |              |   |   |
+|C7 |0  |              |   |   |
+|C7 |1  |              |   |   |
 
 4. El siguiente programa suma los números que encuentra en la entrada hasta que aparece un cero, y luego envía el resultado a la salida. Traducirlo a ensamblador y a C siguiendo el ejemplo de las primeras dos líneas.
 
