@@ -61,16 +61,15 @@ En el segundo programa, las direcciones 0x8, 0x9, 0xA, 0xB y 0xC son instruccion
 
 ```
 0x1:  A0   #  lw 0  #
-0x2:  CE   #  sw E  #  int sum = 0;
-0x3:  AF
-0x4:  E9
-0x5:  2E
-0x6:  CE
-0x7:  A0
-0x8:  E3
-0x9:  AE
-0xA:  CF
-0xB:  00
+0x2:  CE   #  sw E  #  int sum = 0, F;
+0x3:  AF   #  lw F  #  scanf("%d", &F);
+0x4:  E9   #  bze 9 #  if(F == 0) goto 0x9
+0x5:  2E   #  add E #  suma = suma + F;
+0x6:  CE   #  sw E  #
+0x7:  A0   #  lw 0  #  
+0x8:  E3   #  bze 3 #  goto 0x3;
+0x9:  AE   #  lw E  #  
+0xA:  CF   #  sw F  #  F = suma;
+0xB:  00   #  halt 0 #  return 0;
 ```
-
 5. Una mejora que le podríamos hacer a esta computadora es duplicar la cantidad de memoria, pasar de 16 bytes a 32 bytes. ¿Cómo lo harían manteniendo la longitud de las instrucciones en 8 bits? ¿Qué partes de la CPU habría que modificar y cómo?
