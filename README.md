@@ -50,13 +50,13 @@ En el segundo programa, las direcciones 0x8, 0x9, 0xA, 0xB y 0xC son instruccion
 
 |Instrucción|Reloj|Control|Data bus|Address Bus|
 |---|---|--------------|---|---|
-|A5 |0  |IR en         |A5 |1  |
-|A5 |1  |R en, addr mux|08 |5  |
-|26 |0  |              |   |   |
-|26 |1  |              |   |   |
-|C7 |0  |              |   |   |
-|C7 |1  |              |   |   |
-
+|A5 |0  |IR en                   |A5 |1  |
+|A5 |1  |R en, addr mux          |08 |5  |
+|26 |0  |IR en                   |26 |2  |
+|26 |1  |R en, addr mux, ALUOp[0]|05 |6  |
+|C7 |0  |IR en                   |C7 |3  |
+|C7 |1  |                        |13 |7  |
+ 
 4. El siguiente programa suma los números que encuentra en la entrada hasta que aparece un cero, y luego envía el resultado a la salida. Traducirlo a ensamblador y a C siguiendo el ejemplo de las primeras dos líneas.
 
 ```
@@ -73,3 +73,4 @@ En el segundo programa, las direcciones 0x8, 0x9, 0xA, 0xB y 0xC son instruccion
 0xB:  00   #  halt 0 #  return 0;
 ```
 5. Una mejora que le podríamos hacer a esta computadora es duplicar la cantidad de memoria, pasar de 16 bytes a 32 bytes. ¿Cómo lo harían manteniendo la longitud de las instrucciones en 8 bits? ¿Qué partes de la CPU habría que modificar y cómo?
+***RTA***: Unicamente cambiando el registro PC, la entrada de direcciones del I/O y el tamaño de la memoria (junto con los multiplexores y cables de por medio). La memoria ahora almacenaria 32 instrucciones, en vez de 16 (un 5 bits de direcciones), el registro PC manipularia 5 bits de datos (en vez de 4) al igual que la entrada del address del I/O
